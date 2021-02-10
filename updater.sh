@@ -10,14 +10,36 @@ echo "under certain conditions;"
 echo "for more info, access <https://www.gnu.org/licenses/>"
 
 APT_DIR="/etc/apt"
+YUM_DIR="/etc/yum"
+DNF_DIR="/etc/dnf"
 if [ -d $APT_DIR ]; then
+    echo "Using apt"
     echo "----Update------"
     sudo apt update
     echo "----Upgrade-----"
     sudo apt upgrade
     echo "----Autoremove--"
     sudo apt autoremove
+elif [ -d $YUM_DIR ]; then
+    echo "Using yum"
+    echo "----Upgrade-----"
+    sudo dnf upgrade --refresh
+    echo "----Install-----"
+    sudo dnf install dnf-plugin-system-upgrade
+    echo "-System-Upgrade-"
+    sudo dnf system-upgrade download --refresh
+elif [ -d $DNF_DIR ]; then
+    echo "Using dnf"
+    echo "--Check-Update--"
+    sudo dnf check-update
+    echo "----Upgrade-----"
+    sudo dnf upgrade
+    echo "---Autoremove---"
+    sudo dnf autoremove
+else
+    echo "The program did not find the installer folders:"
+    echo "$APT_DIR , $YUM_DIR and $DNF_DIR"
 fi
-echo "----End---------"
+echo "-------End------"
 read -s -p "Press [ENTER] key to exit."
 echo ""
