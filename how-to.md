@@ -6,4 +6,4 @@ Go to folder with the script
 
 execute with ./ (maybe need chmod +x updater.sh)
 
-example: sudo ./updater.sh
+example: ./updater.sh
