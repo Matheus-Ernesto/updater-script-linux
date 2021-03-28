@@ -1,5 +1,5 @@
     the Updater script that update, install and auto-remove packages
-    Copyright (C) 2021  Matheus-Ernesto
+    Copyright (C) 2021  Matheus-Ernesto (Matheus Ernesto dos Santos)
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
